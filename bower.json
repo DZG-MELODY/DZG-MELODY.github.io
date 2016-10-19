@@ -1,0 +1,18 @@
+{
+  "name": "DZG_MELODY_PAGE",
+  "authors": [
+    "DZG <dongzhigang_bit@126.com>"
+  ],
+  "description": "Page of DZG_MELODY",
+  "main": "index.html",
+  "license": "MIT",
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
