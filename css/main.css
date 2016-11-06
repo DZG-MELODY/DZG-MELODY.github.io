@@ -7,8 +7,6 @@
   }
 }
 footer {
-  position: fixed;
-  bottom: 0;
   color: white;
   background-color: #1abc9c;
 }
@@ -18,4 +16,10 @@ footer a:visited {
 }
 footer a:hover {
   color: lightgray;
+}
+ul.list-group {
+  background-color: #eff0f2;
+}
+ul.list-group li {
+  background-color: inherit;
 }
