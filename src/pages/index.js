@@ -1,9 +1,8 @@
 import * as React from "react"
 import { Link, graphql } from "gatsby"
-
-import Bio from "../components/bio"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
+
 
 const BlogIndex = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata?.title || `Title`
@@ -13,7 +12,6 @@ const BlogIndex = ({ data, location }) => {
     return (
       <Layout location={location} title={siteTitle}>
         <Seo title="All posts" />
-        <Bio />
         <p>
           No blog posts found. Add markdown posts to "content/blog" (or the
           directory you specified for the "gatsby-source-filesystem" plugin in
@@ -26,40 +24,38 @@ const BlogIndex = ({ data, location }) => {
   return (
     <Layout location={location} title={siteTitle}>
       <Seo title="All posts" />
-      <Bio />
-      <ol style={{ listStyle: `none` }}>
+      <ol className="list-none flex flex-col gap-4 mt-5">
         {posts.map(post => {
           const title = post.frontmatter.title || post.fields.slug
-
           return (
-            <li key={post.fields.slug}>
-              <article
-                className="post-list-item"
-                itemScope
-                itemType="http://schema.org/Article"
-              >
-                <header>
-                  <h2>
-                    <Link to={`/${post.frontmatter.category || 'blog'}${post.fields.slug}`} itemProp="url">
-                      <span itemProp="headline">{title}</span>
-                    </Link>
-                  </h2>
-                  <small>{post.frontmatter.date}</small>
-                </header>
-                <section>
-                  <p
-                    dangerouslySetInnerHTML={{
-                      __html: post.frontmatter.description || post.excerpt,
-                    }}
-                    itemProp="description"
-                  />
-                </section>
-              </article>
-            </li>
+            <Link key={post.fields.slug} to={`/${post.frontmatter.category || 'blog'}${post.fields.slug}`} itemProp="url">
+              <li>
+                <article
+                  className="w-full border border-primary rounded-xl px-5 py-3 transform hover:scale-105 transition-transform duration-200"
+                  itemScope
+                >
+                  <header>
+                    <h2>
+                      <span itemProp="headline" className="font-bold text-3xl text-primary">{title}</span>
+                    </h2>
+                    <span className="mt-2 text-gray-700 dark:text-gray-200">{post.frontmatter.date}</span>
+                  </header>
+                  <section>
+                    <p
+                      className="mt-3 text-xl text-gray-600 dark:text-gray-100"
+                      dangerouslySetInnerHTML={{
+                        __html: post.frontmatter.description || post.excerpt,
+                      }}
+                      itemProp="description"
+                    />
+                  </section>
+                </article>
+              </li>
+            </Link>
           )
         })}
       </ol>
-    </Layout>
+    </Layout >
   )
 }
 

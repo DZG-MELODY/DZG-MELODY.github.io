@@ -6,12 +6,13 @@ module.exports = {
       summary: `愿意与你交流与探讨`,
     },
     description: `DZG: 技术与内心 总结与探索 精彩与遗憾`,
-    siteUrl: `https://gatsbystarterblogsource.gatsbyjs.io/`,
+    siteUrl: `https://dzg-melody.github.io/`,
     social: {
-      twitter: `DZG72972570`,
+      twitter: `https://twitter.com/DZG72972570`,
     },
   },
   plugins: [
+    `gatsby-plugin-postcss`,
     `gatsby-plugin-image`,
     {
       resolve: `gatsby-source-filesystem`,
@@ -136,3 +137,4 @@ module.exports = {
     // `gatsby-plugin-offline`,
   ],
 }
+

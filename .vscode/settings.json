@@ -4,6 +4,7 @@
     "frontmatter",
     "iframe",
     "merriweather",
-    "prismjs"
+    "prismjs",
+    "tailwindcss"
   ]
 }

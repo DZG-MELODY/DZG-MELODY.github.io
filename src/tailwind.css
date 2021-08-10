@@ -1,0 +1,15 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  @font-face {
+    font-family: "zcool";
+    src: url("fonts/ZCOOL.ttf");
+  }
+
+  html,
+  body {
+    @apply w-full h-full font-cool dark:bg-black dark:text-white;
+  }
+}
