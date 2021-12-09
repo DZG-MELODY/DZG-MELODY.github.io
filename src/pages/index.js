@@ -31,18 +31,18 @@ const BlogIndex = ({ data, location }) => {
             <Link key={post.fields.slug} to={`/${post.frontmatter.category || 'blog'}${post.fields.slug}`} itemProp="url">
               <li>
                 <article
-                  className="w-full border border-primary rounded-xl px-5 py-3 transform hover:scale-105 transition-transform duration-200"
+                  className="w-full border border-primary-blue rounded-xl px-5 py-3 transform hover:scale-105 transition-transform duration-200"
                   itemScope
                 >
                   <header>
                     <h2>
-                      <span itemProp="headline" className="font-bold text-3xl text-primary">{title}</span>
+                      <span itemProp="headline" className="font-bold text-3xl text-primary-blue">{title}</span>
                     </h2>
                     <span className="mt-2 text-gray-700 dark:text-gray-200">{post.frontmatter.date}</span>
                   </header>
                   <section>
                     <p
-                      className="mt-3 text-xl text-gray-600 dark:text-gray-100"
+                      className="mt-3 italic text-gray-600 dark:text-gray-100"
                       dangerouslySetInnerHTML={{
                         __html: post.frontmatter.description || post.excerpt,
                       }}
