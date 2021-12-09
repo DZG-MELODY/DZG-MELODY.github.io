@@ -25,14 +25,14 @@ const BlogPostTemplate = ({ data, location }) => {
           <p className="mt-2 text-base text-gray-600">{post.frontmatter.date}</p>
         </header>
         <section
-          className="text-xl text-gray-800 dark:text-gray-100 leading-8"
+          className="text-gray-800 dark:text-gray-100 leading-8 font-mono"
           dangerouslySetInnerHTML={{ __html: post.html }}
           itemProp="articleBody"
         />
       </article>
-      <hr className="mt-6" />
+      <hr className="mt-16" />
       <nav className="mt-2">
-        <ul className="flex flex-wrap justify-between list-none p-0 text-primary">
+        <ul className="flex flex-wrap justify-between list-none p-0 text-primary-red">
           <li>
             {previous && (
               <Link to={`/${previous.frontmatter.category || 'blog'}${previous.fields.slug}`} rel="prev">

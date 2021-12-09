@@ -29,38 +29,50 @@ const Layout = ({ location, title, children }) => {
   if (isRootPath) {
     header = (
       <>
-        <h1 className="font-cool text-4xl font-bold">
-          <Link to="/">{title}</Link>
+        <h1 className="font-sans text-5xl font-bold">
+          <Link to="/">
+            <span className="text-primary-blue">D</span>
+            <span className="text-primary-red">Z</span>
+            <span className="text-primary-yellow">G</span>
+            <span className="text-primary-green">的技术世界</span></Link>
         </h1>
       </>
     )
   } else {
     header = (
-      <Link className="font-cool text-2xl font-bold" to="/">
-        {title}
+      <Link className="text-2xl font-bold" to="/">
+        <span className="text-primary-blue">D</span>
+        <span className="text-primary-red">Z</span>
+        <span className="text-primary-yellow">G</span>
+        <span className="text-primary-green">的技术世界</span>
       </Link>
     )
   }
 
   return (
     <>
-      <nav className="flex flex-row items-center">
-        <header className={classNames(isRootPath ? "justify-center" : "justify-start", "h-16 mx-5 flex flex-auto items-center text-primary")}>
+      <nav className="flex flex-row items-center h-20">
+        <header className={classNames(isRootPath ? "justify-center" : "justify-start", "h-16 mx-5 flex flex-auto items-center")}>
           {header}
         </header>
         <div className="flex-grow-0 flex-auto flex flex-row gap-3 justify-end pr-5">
           <ModeSwitch />
-          <Society type="weChat" url={social.weChat || ''} />
-          <Society type="youTube" url={social.youTube || ''} />
-          <Society type="twitter" url={social.twitter || ''} />
         </div>
       </nav>
 
 
-      <main className="min-h-screen container mx-auto px-5" data-is-root-path={isRootPath}>{children}</main>
+      <main className="container mx-auto px-5" style={{ minHeight: 'calc(100vh - 185px)' }} data-is-root-path={isRootPath}>{children}</main>
 
-      <footer className="bg-primary-300 text-white dark:bg-gray-500 h-20 flex justify-center items-center">
+      <footer className=" text-gray-400 italic border-t border-gray-400 h-20 px-5 flex justify-between items-center">
+        <div className="flex-1"></div>
+        <div className="flex-grow-0 flex-shrink-0 flex-auto">
         © {new Date().getFullYear()},{`dzg`}
+        </div>
+        <div className="flex-1 flex justify-end items-center gap-3">
+          <Society type="weChat" url={social.weChat || ''} />
+          <Society type="youTube" url={social.youTube || ''} />
+          <Society type="twitter" url={social.twitter || ''} />
+        </div>
       </footer>
     </>
   )
